@@ -11,7 +11,9 @@ namespace MyCdkApp
         {
             var app = new App();
 
-            var environment = app.Node.TryGetContext("env") ?? "dev";
+            var environment = (string)app.Node.TryGetContext("env") ?? "dev";
+            var account = (string)app.Node.TryGetContext($"{environment.ToUpper()}_AWS_ACCOUNT_ID") ?? "";
+            var region = (string)app.Node.TryGetContext($"{environment.ToUpper()}_AWS_REGION") ?? "";
 
             new MyCdkAppStack(app, $"MyCdkAppStack-{environment}", new StackProps
             {
@@ -24,8 +26,8 @@ namespace MyCdkApp
 
                 Env = new Amazon.CDK.Environment
                 {
-                    Account = System.Environment.GetEnvironmentVariable($"CDK_DEFAULT_ACCOUNT"),
-                    Region = System.Environment.GetEnvironmentVariable($"CDK_DEFAULT_REGION"),
+                    Account = System.Environment.GetEnvironmentVariable(account),
+                    Region = System.Environment.GetEnvironmentVariable(region),
                 }
 
 
