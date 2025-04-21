@@ -20,7 +20,7 @@ namespace MyCdkApp
             {
                 Runtime = Runtime.DOTNET_8,
                 Handler = "FunctionAppLogic::FunctionAppLogic.Functions::UploadDocument",
-                Code = Code.FromAsset("src/FunctionAppLogic/bin/Release/net8.0/publish")
+                Code = Code.FromAsset("../FunctionAppLogic/bin/Release/net8.0/publish")
             });
 
             new LambdaRestApi(this, $"documentUploadFunctionApiEndpoint-{environment}", new LambdaRestApiProps
