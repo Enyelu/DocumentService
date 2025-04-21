@@ -52,7 +52,7 @@ namespace MyCdkApp
                     BlockPublicAcls = false,
                     IgnorePublicAcls = false,
                     BlockPublicPolicy = false,
-                    RestrictPublicBuckets = false,
+                    RestrictPublicBuckets = false
                 })
             });
 
