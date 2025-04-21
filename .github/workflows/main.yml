@@ -37,6 +37,11 @@ jobs:
           dotnet restore
           dotnet build --no-restore
 
+      - name: Publish Lambda Function
+        run: |
+          dotnet publish ./src/FunctionAppLogic/FunctionAppLogic.csproj -c Release -o ./src/FunctionAppLogic/bin/Release/net8.0/publish
+          dotnet publish ./src/FunctionAppLogicDocker/FunctionAppLogicDocker.csproj -c Release -o ./src/FunctionAppLogicDocker/bin/Release/net8.0/publish
+
       - name: Deploy CDK Stack
         run: |
           cdk deploy --all --require-approval never \
