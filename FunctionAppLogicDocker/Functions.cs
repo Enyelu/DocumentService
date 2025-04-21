@@ -60,7 +60,7 @@ public class Functions
 
         var putRequest = new PutObjectRequest
         {
-            BucketName = "mycdkappstack-documentstorage21aa9d86-gxlwfvvjykkp",
+            BucketName = "mycdkappstack-dev-documentstoragedev1aa3e335-chby0vhgd1r4", //TODO::: Make this configurable
             Key = uploadRequest.FileName,
             InputStream = new MemoryStream(fileBytes),
             ContentType = uploadRequest.ContentType ?? "application/octet-stream"
