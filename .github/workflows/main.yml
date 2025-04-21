@@ -40,6 +40,7 @@ jobs:
       - name: Publish Lambda Function
         run: |
           dotnet publish ./FunctionAppLogic/FunctionAppLogic.csproj -c Release -o ./src/FunctionAppLogic/bin/Release/net8.0/publish
+          dotnet publish ./FunctionAppLogicDocker/FunctionAppLogicDocker.csproj -c Release -o ./src/FunctionAppLogicDocker/bin/Release/net8.0/publish
 
       - name: Deploy CDK Stack
         run: |
